@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>민법 한눈에 보기</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --main: #1e40af;
+      --sub: #0f766e;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #d1d5db;
+      --blue-soft: #eff6ff;
+      --green-soft: #ecfdf5;
+      --orange-soft: #fff7ed;
+      --purple-soft: #f5f3ff;
+      --yellow-soft: #fffbeb;
+      --red-soft: #fef2f2;
+      --shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+        "Noto Sans KR", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 20px 16px 36px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #e0f2fe, #ffffff);
+      border-radius: 24px;
+      padding: 24px 18px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--sub);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--main);
+    }
+
+    .hero p {
+      margin: 8px 0 0;
+      font-size: 15px;
+      color: #374151;
+      font-weight: 600;
+    }
+
+    .section-title {
+      margin: 24px 4px 12px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .flow { display: flex; flex-direction: column; gap: 10px; }
+
+    .flow-item {
+      position: relative;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: var(--card);
+      border: 1px solid #c7d2fe;
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    }
+
+    .flow-item:not(:last-child)::after {
+      content: "↓";
+      position: absolute;
+      left: 28px;
+      bottom: -20px;
+      color: var(--sub);
+      font-size: 18px;
+      font-weight: 900;
+      z-index: 2;
+    }
+
+    .num {
+      flex: 0 0 32px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--sub);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .flow-content h3 {
+      margin: 0 0 3px;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .flow-content p { margin: 0; font-size: 13.5px; color: var(--muted); }
+
+    .summary-bar {
+      margin-top: 14px;
+      background: #ecfeff;
+      border: 1px solid #99f6e4;
+      color: #115e59;
+      border-radius: 16px;
+      padding: 13px 14px;
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .part-list { display: flex; flex-direction: column; gap: 14px; }
+
+    .part-card {
+      background: var(--card);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid #eef2f7;
+    }
+
+    .part-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .blue .icon { background: var(--blue-soft); }
+    .green .icon { background: var(--green-soft); }
+    .orange .icon { background: var(--orange-soft); }
+    .purple .icon { background: var(--purple-soft); }
+
+    .part-card h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .blue h2 { color: #1d4ed8; }
+    .green h2 { color: #047857; }
+    .orange h2 { color: #c2410c; }
+    .purple h2 { color: #6d28d9; }
+
+    .easy {
+      margin: 0 0 12px;
+      font-size: 14.5px;
+      color: #374151;
+      font-weight: 600;
+    }
+
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 5px 0; font-size: 14px; color: #374151; }
+
+    .exam-point {
+      margin-top: 18px;
+      background: var(--yellow-soft);
+      border: 1px solid #fde68a;
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .exam-point h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .chips {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .chip {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 12px 10px;
+      font-size: 13.5px;
+      font-weight: 800;
+      text-align: center;
+      border: 1px solid #f3f4f6;
+    }
+
+    .warning {
+      margin-top: 14px;
+      padding: 12px 14px;
+      background: var(--red-soft);
+      border: 1px solid #fecaca;
+      border-radius: 16px;
+      color: #991b1b;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #111827;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 13px 10px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    }
+
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 26px; }
+      .chips, .nav { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="hero-badge">민법 전체 구조</span>
+      <h1>민법 한눈에 보기</h1>
+      <p>공인중개사 시험용 전체 흐름도</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">1. 민법 전체 흐름</h2>
+
+      <div class="flow">
+        <article class="flow-item"><div class="num">1</div><div class="flow-content"><h3>사람의 의사 표시</h3><p>무엇을 하려는지 뜻을 밖으로 드러냅니다.</p></div></article>
+        <article class="flow-item"><div class="num">2</div><div class="flow-content"><h3>법률행위 성립</h3><p>계약·해지·취소 등 법률효과를 일으키는 행위입니다.</p></div></article>
+        <article class="flow-item"><div class="num">3</div><div class="flow-content"><h3>권리 변동 발생</h3><p>권리가 생기고, 바뀌고, 없어집니다.</p></div></article>
+        <article class="flow-item"><div class="num">4</div><div class="flow-content"><h3>부동산 권리 관계 문제</h3><p>누가 소유자인지, 어떤 담보권이 있는지 확인합니다.</p></div></article>
+        <article class="flow-item"><div class="num">5</div><div class="flow-content"><h3>계약 관계 문제</h3><p>매매·임대차에서 당사자의 권리와 의무를 판단합니다.</p></div></article>
+        <article class="flow-item"><div class="num">6</div><div class="flow-content"><h3>특별법으로 보완</h3><p>주택임대차보호법 등으로 약자를 보호합니다.</p></div></article>
+      </div>
+
+      <div class="summary-bar">
+        핵심 흐름: 의사표시 → 법률행위 → 권리변동 → 물권·계약 → 특별법
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">2. 민법 4대 단원</h2>
+
+      <div class="part-list">
+        <article class="part-card blue">
+          <div class="part-head"><div class="icon">⚖️</div><h2>1. 민법총칙</h2></div>
+          <p class="easy">민법의 기본 문법입니다. 계약이 유효한지부터 먼저 따지는 파트입니다.</p>
+          <ul>
+            <li>법률행위, 의사표시, 대리, 무효·취소를 다룹니다.</li>
+            <li>시험에서 가장 기본이 되는 출발점입니다.</li>
+            <li>뒤의 물권법·계약법 문제에도 계속 연결됩니다.</li>
+          </ul>
+        </article>
+
+        <article class="part-card green">
+          <div class="part-head"><div class="icon">🏠</div><h2>2. 물권법</h2></div>
+          <p class="easy">부동산 권리가 누구에게 있는지 보는 파트입니다.</p>
+          <ul>
+            <li>소유권, 점유권, 전세권, 유치권, 저당권이 중요합니다.</li>
+            <li>등기와 함께 출제되는 경우가 많습니다.</li>
+            <li>부동산 권리관계 판단의 핵심입니다.</li>
+          </ul>
+        </article>
+
+        <article class="part-card orange">
+          <div class="part-head"><div class="icon">🤝</div><h2>3. 계약법</h2></div>
+          <p class="easy">매매와 임대차에서 당사자가 무엇을 해줘야 하는지 보는 파트입니다.</p>
+          <ul>
+            <li>계약의 성립, 효력, 해제·해지가 중요합니다.</li>
+            <li>매매, 임대차, 담보책임이 자주 출제됩니다.</li>
+            <li>실제 거래와 연결되어 체감이 쉬운 단원입니다.</li>
+          </ul>
+        </article>
+
+        <article class="part-card purple">
+          <div class="part-head"><div class="icon">🛡️</div><h2>4. 민사특별법</h2></div>
+          <p class="easy">민법만으로 부족한 부분을 특별한 규칙으로 보완하는 파트입니다.</p>
+          <ul>
+            <li>주택임대차보호법, 상가건물임대차보호법이 중요합니다.</li>
+            <li>집합건물법, 가등기담보법, 부동산실명법도 출제됩니다.</li>
+            <li>실무형 지문과 숫자·요건 문제가 자주 나옵니다.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="exam-point">
+      <h2>시험 포인트</h2>
+      <div class="chips">
+        <div class="chip">민법총칙은 전체의 기초</div>
+        <div class="chip">물권법은 등기와 연결</div>
+        <div class="chip">계약법은 매매·임대차 중심</div>
+        <div class="chip">민사특별법은 보호요건·대항력 주의</div>
+      </div>
+    </section>
+
+    <div class="warning">※ 법령과 판례는 개정·변동 가능성이 있으므로 최신 기준 확인 필요</div>
+
+    <nav class="nav">
+      <a href="#civil-general">민법총칙</a>
+      <a href="#property-law">물권법</a>
+      <a href="#contract-law">계약법</a>
+      <a href="#special-civil-law">민사특별법</a>
+    </nav>
+  </main>
+</body>
+</html>
