@@ -606,7 +606,7 @@ const propertyLawCards = [
 
 
 const contractLawCards = window.contractLawCards || [];
-const specialCivilLawCards = [];
+const specialCivilLawCards = window.specialCivilLawCards || [];
 
 const civilCards = [
   ...civilGeneralCards,
