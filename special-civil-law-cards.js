@@ -2,7 +2,7 @@
 // 법령 검토 기준일: 2026-06-21
 // 시험 직전 최신 법령 및 Q-Net 공고를 다시 확인하세요.
 
-const specialCivilLawCards = [
+window.specialCivilLawCards = [
   {
     id: "civil-special-001",
     exam: "1차",
