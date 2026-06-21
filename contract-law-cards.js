@@ -1,17 +1,16 @@
 /*
   공인중개사 민법 학습카드 - 계약법(계약총칙)
-  적용 방법:
-  1) 이 파일을 data.js와 같은 폴더에 저장합니다.
-  2) index.html에서 data.js 다음, app.js 앞에 아래 줄을 추가합니다.
-     <script src="contract-law-cards.js"></script>
 
-  주의:
-  - 기존 data.js에 const cards = [...] 배열이 먼저 선언되어 있어야 합니다.
-  - 시험 직전에는 최신 민법 및 Q-Net 공고를 다시 확인하세요.
+  사용 순서:
+  1) index.html에서 이 파일을 data.js보다 먼저 불러옵니다.
+  2) data.js의 계약법 배열 선언을 아래처럼 수정합니다.
+     const contractLawCards = window.contractLawCards || [];
+
+  시험 직전에는 최신 민법 및 Q-Net 공고를 확인하세요.
 */
 
-cards.push(
-  {
+window.contractLawCards = [
+{
     id: "civil-contract-001",
     exam: "1차",
     subject: "민법",
@@ -302,4 +301,4 @@ cards.push(
       }
     ]
   }
-);
+];
